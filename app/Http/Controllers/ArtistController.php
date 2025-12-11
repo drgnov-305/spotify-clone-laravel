@@ -34,7 +34,7 @@ class ArtistController extends Controller
         return view('artists.edit', compact('artist'));
     }
 
-    public function update(Requesr $request, Artist $artist)
+    public function update(Request $request, Artist $artist)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -45,7 +45,7 @@ class ArtistController extends Controller
         return redirect()->route('artists.index')->with('success', 'Artist updated successfully!');
     }
 
-    public function destory(Artist $artist)
+    public function destroy(Artist $artist)
     {
         $artist->delete();
 
